@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+    <title> Bull Shit App</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            ชื่อ
+         </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Search">
+          <button type="submit">Search</button>
+        </div>
+        <div class="notification">
+            <button class="notification-button">
+              <span class="notification-icon"></span>
+            </button>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="slideshow-container">
+            <div class="slide">
+              <img src="../templates/image/kaning1.jpg" alt="Image 1">
+            </div>
+            <div class="slide">
+              <img src="../templates/image/Sita1.jpg" alt="Image 2">
+            </div>
+            <div class="slide">
+              <img src="../templates/image/Marmink1.jpg" alt="Image 3">
+            </div>
+
+            <a class="prev" onclick="showSlide(currentSlide - 1)">&#10094;</a>
+            <a class="next" onclick="showSlide(currentSlide + 1)">&#10095;</a>
+          </div>
+        <div class="button-container">
+            <button><a href="house.html">ซื้อแบบบ้าน</a></button>
+            <button><a href="area.html">แสกนพื้นที่</a></button>
+            <button><a href="material.html">แสกนวัสดุ</a></button>
+            <button><a href="build.html">ตามหาผู้รับเหมา</a></button>
+        </div>
+      </div>
+      <div class="bottom-navbar">
+        <nav>
+          <ul>
+            <li><a href="chat.html">แชท</a></li>
+            <li><a href="#">ค้นหา</a></li>
+            <li><a href="#">หน้าหลัก</a></li>
+            <li><a href="invesment.html">การลงทุน</a></li>
+            <li><a href="profile.html">โปรไฟล์</a></li>
+          </ul>
+        </nav>
+      </div>
+    <script>
+        // Slideshow logic
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (n + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+        }
+
+        // Slide to the next image every 3 seconds
+        setInterval(() => {
+        showSlide(currentSlide + 1);
+        }, 3000);
+
+        // Show the initial slide
+        showSlide(currentSlide);
+       const menuBtn = document.querySelector(".menu-icon span");
+       const searchBtn = document.querySelector(".search-icon");
+       const cancelBtn = document.querySelector(".cancel-icon");
+       const items = document.querySelector(".nav-items");
+       const form = document.querySelector("form");
+       menuBtn.onclick = ()=>{
+         items.classList.add("active");
+         menuBtn.classList.add("hide");
+         searchBtn.classList.add("hide");
+         cancelBtn.classList.add("show");
+       }
+       cancelBtn.onclick = ()=>{
+         items.classList.remove("active");
+         menuBtn.classList.remove("hide");
+         searchBtn.classList.remove("hide");
+         cancelBtn.classList.remove("show");
+         form.classList.remove("active");
+         cancelBtn.style.color = "#ff3d00";
+       }
+       searchBtn.onclick = ()=>{
+         form.classList.add("active");
+         searchBtn.classList.add("hide");
+         cancelBtn.classList.add("show");
+       }
+    </script>
+ </body>
+</html>
