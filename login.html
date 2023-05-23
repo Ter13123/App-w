@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+    <title> Bull Shit App</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            ชื่อ
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Search">
+          <button type="submit">Search</button>
+        </div>
+        <div class="notification-icon">
+            <a href="#" onclick="toggleNotificationBox()">
+              <i class="fas fa-bell"></i>
+              <span class="badge" id="notification-badge">0</span>
+            </a>
+            <div class="notification-box" id="notification-box">
+              <!-- Notification content goes here -->
+            </div>
+        </div>
+    </nav>
+    <div id="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+          <input type="text" placeholder="Username" id="login-username">
+          <input type="password" placeholder="Password" id="login-password">
+          <button type="submit" class="button-1">Login</button>
+        </form>
+      </div>
+      
+      <div id="register-container">
+        <h2>Register</h2>
+        <form id="register-form">
+          <input type="text" placeholder="Username" id="register-username">
+          <input type="password" placeholder="Password" id="register-password">
+          <input type="email" placeholder="Email" id="register-email">
+          <button type="submit" class="button-1">Register</button>
+        </form>
+      </div>
+      <div class="bottom-navbar">
+        <nav>
+          <ul>
+            <li><a href="chat.html" class="nav-link">แชท</a></li>
+            <li><a href="#" class="nav-link">ค้นหา</a></li>
+            <li><a href="index.html" class="nav-link active">หน้าหลัก</a></li>
+            <li><a href="invesment.html" class="nav-link">การลงทุน</a></li>
+            <li><a href="login.html" class="nav-link">โปรไฟล์</a></li>
+          </ul>
+        </nav>
+      </div>
+    <script>
+        // Login form submission
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Retrieve input values
+    var username = document.getElementById("login-username").value;
+    var password = document.getElementById("login-password").value;
+
+    // Perform login validation
+    // Replace with actual server-side authentication logic
+    if (username === "admin" && password === "password") {
+        alert("Login successful!");
+        // Redirect to dashboard or desired page
+    } else {
+        alert("Invalid credentials. Please try again.");
+    }
+    });
+
+    // Register form submission
+    document.getElementById("register-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Retrieve input values
+    var username = document.getElementById("register-username").value;
+    var password = document.getElementById("register-password").value;
+    var email = document.getElementById("register-email").value;
+
+    // Perform registration validation and logic
+    // Replace with actual server-side registration logic
+    alert("Registration successful!");
+
+    // Clear the form fields
+    document.getElementById("register-form").reset();
+    });
+    </script>
+</body>
