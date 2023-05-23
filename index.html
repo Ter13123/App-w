@@ -10,27 +10,43 @@
     <nav class="navbar">
         <div class="logo">
             ชื่อ
-         </div>
+        </div>
         <div class="search-bar">
           <input type="text" placeholder="Search">
           <button type="submit">Search</button>
         </div>
-        <div class="notification">
-            <button class="notification-button">
-              <span class="notification-icon"></span>
-            </button>
+        <div class="notification-icon">
+            <a href="#" onclick="toggleNotificationBox()">
+              <i class="fas fa-bell"></i>
+              <span class="badge" id="notification-badge">0</span>
+            </a>
+            <div class="notification-box" id="notification-box">
+              <!-- Notification content goes here -->
+            </div>
         </div>
       </nav>
       <div class="container">
         <div class="slideshow-container">
             <div class="slide">
-              <img src="../templates/image/kaning1.jpg" alt="Image 1">
+              <img src="../templates/image/kaning3.jpg" alt="Image 1">
             </div>
             <div class="slide">
               <img src="../templates/image/Sita1.jpg" alt="Image 2">
             </div>
             <div class="slide">
               <img src="../templates/image/Marmink1.jpg" alt="Image 3">
+            </div>
+            <div class="slide">
+              <img src="../templates/image/kaning2.jpg" alt="Image 3">
+            </div>
+            <div class="slide">
+              <img src="../templates/image/Marmink2.jpg" alt="Image 3">
+            </div>
+            <div class="slide">
+              <img src="../templates/image/Kaming.jpg" alt="Image 3">
+            </div>
+            <div class="slide">
+              <img src="../templates/image/nenine.jpg" alt="Image 3">
             </div>
 
             <a class="prev" onclick="showSlide(currentSlide - 1)">&#10094;</a>
@@ -46,15 +62,27 @@
       <div class="bottom-navbar">
         <nav>
           <ul>
-            <li><a href="chat.html">แชท</a></li>
-            <li><a href="#">ค้นหา</a></li>
-            <li><a href="#">หน้าหลัก</a></li>
-            <li><a href="invesment.html">การลงทุน</a></li>
-            <li><a href="profile.html">โปรไฟล์</a></li>
+            <li><a href="chat.html" class="nav-link">แชท</a></li>
+            <li><a href="#" class="nav-link">ค้นหา</a></li>
+            <li><a href="index.html" class="nav-link active">หน้าหลัก</a></li>
+            <li><a href="invesment.html" class="nav-link">การลงทุน</a></li>
+            <li><a href="login.html" class="nav-link">โปรไฟล์</a></li>
           </ul>
         </nav>
       </div>
     <script>
+        var notificationBox = document.getElementById("notification-box");
+        var isNotificationBoxOpen = false;
+
+        function toggleNotificationBox() {
+        isNotificationBoxOpen = !isNotificationBoxOpen;
+        
+        if (isNotificationBoxOpen) {
+            notificationBox.classList.add("show");
+        } else {
+            notificationBox.classList.remove("show");
+        }
+    }
         // Slideshow logic
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
@@ -68,7 +96,7 @@
         // Slide to the next image every 3 seconds
         setInterval(() => {
         showSlide(currentSlide + 1);
-        }, 3000);
+        }, 10000);
 
         // Show the initial slide
         showSlide(currentSlide);
