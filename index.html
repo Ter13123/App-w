@@ -8,13 +8,14 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">
-            ชื่อ
-        </div>
+        <a href="index.html" class="logo">
+          <img src="../templates/image/sita logo.jpg" alt="Logo">
+        </a>
         <div class="search-bar">
           <input type="text" id="search-bar" placeholder="Search">
           <button type="submit">Search</button>
         </div>
+        <a href="login.html" class="login-button">Login</a>
         <div class="notification-icon">
             <a href="#" onclick="toggleNotificationBox()">
               <i class="fas fa-bell"></i>
@@ -48,29 +49,87 @@
             <div class="slide">
               <img src="../templates/image/nenine.jpg" alt="Image 3">
             </div>
+            <div class="slide">
+              <img src="../templates/image/Sita.jpg" alt="Image 3">
+            </div>
 
             <a class="prev" onclick="showSlide(currentSlide - 1)">&#10094;</a>
             <a class="next" onclick="showSlide(currentSlide + 1)">&#10095;</a>
           </div>
-        <div class="button-container">
-            <button><a href="house.html">ซื้อแบบบ้าน</a></button>
-            <button><a href="area.html">แสกนพื้นที่</a></button>
-            <button><a href="material.html">แสกนวัสดุ</a></button>
-            <button><a href="build.html">ตามหาผู้รับเหมา</a></button>
-        </div>
       </div>
       <div class="bottom-navbar">
         <nav>
           <ul>
-            <li><a href="chat.html" class="nav-link">แชท</a></li>
-            <li><a href="#" class="nav-link" onclick="scrollToSearch()">ค้นหา</a></li>
-            <li><a href="index.html" class="nav-link active">หน้าหลัก</a></li>
-            <li><a href="invesment.html" class="nav-link">การลงทุน</a></li>
-            <li><a href="login.html" class="nav-link">โปรไฟล์</a></li>
+            <li><a href="chat.html" class="menu-item">แชท</a></li>
+            <li><a href="#" class="menu-item" onclick="scrollToSearch()">ค้นหา</a></li>
+            <li><a href="index.html" class="menu-item">หน้าหลัก</a></li>
+            <li><a href="invesment.html" class="menu-item">การลงทุน</a></li>
+            <li><a href="profile.html" class="menu-item">โปรไฟล์</a></li>
           </ul>
         </nav>
       </div>
+      <div class="page-container">
+        <div class="box">
+          <div class="image-container">
+            <img src="../templates/image/kaning.jpg" alt="Image 1">
+          </div>
+          <div class="content">
+            <h3> โปรแแรมซื้อแบบบ้าน</h3>
+            <p> Content here </p>
+            <a href="house.html" class="box-button">ซื้อแบบบ้าน</a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="image-container">
+            <img src="../templates/image/Sita1.jpg" alt="Image 1">
+          </div>
+          <div class="content">
+            <h3> โปรแกรมแสกนพื้นที่ </h3>
+            <p> Content here </p>
+            <a href="area.html" class="box-button">แสกนพื้นที่</a>
+          </div>
+        </div>
+      </div>
+      <div class="page-container-2">
+        <div class="box-2">
+          <div class="image-container">
+            <img src="../templates/image/Marmink.jpg" alt="Image 1">
+          </div>
+          <div class="content-2">
+            <h3> โปรแกรมแสกนวัสดุ </h3>
+            <p> Content here </p>
+            <a href="material.html" class="box-button">แสกนวัสดุ</a>
+          </div>
+        </div>
+        <div class="box-2">
+          <div class="image-container">
+            <img src="../templates/image/ping.jpg" alt="Image 1">
+          </div>
+          <div class="content-2">
+            <h3>Box 4</h3>
+            <p> โปรแกรมตามหาผู้รับเหมา </p>
+            <a href="build.html" class="box-button">ตามหาผู้รับเหมา</a>
+          </div>
+        </div>
+      </div>
+      
     <script>
+        
+        var currentPageUrl = window.location.href;
+
+        // Get all menu items
+        var menuItems = document.getElementsByClassName("menu-item");
+
+        // Iterate over menu items and add 'active' class to the matching item
+        for (var i = 0; i < menuItems.length; i++) {
+          var menuItemUrl = menuItems[i].href;
+
+          if (currentPageUrl === menuItemUrl) {
+            menuItems[i].classList.add("active");
+          } else {
+            menuItems[i].classList.remove("active");
+          }
+        }
         function scrollToSearch() {
         var searchbar = document.getElementById("search-bar");
         searchbar.scrollIntoView({ behavior: "smooth" });
