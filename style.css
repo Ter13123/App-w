@@ -18,10 +18,14 @@ body{
     background-color: #272626;
   }
   
-  .logo{
-    font-size: 20px;
-    height: 20px;
-    color: white
+  .logo {
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  .logo img {
+    width: 40px; /* Adjust the width as needed */
+    height: auto; /* Preserve aspect ratio */
   }
   
   .search-bar {
@@ -88,6 +92,20 @@ body{
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.login-button {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 20px;
+  background-color: #ccc;
+  border-radius: 4px;
+  margin-right: 50px;
+}
+
+.login-button:hover {
+  background-color: #999;
+}
+
 .container {
     text-align: center;
   }
@@ -100,12 +118,14 @@ body{
   .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
-    height: 400px;
+    margin-top: 200px;
   }
   
   .button-container button {
     margin: 0 5px;
+    margin-right: 500px;
+    margin-left: 500px;
+    width: 200px;
     padding: 10px 20px;
     background-color: rgb(230, 226, 226);
     color: #fff;
@@ -119,22 +139,45 @@ body{
   .button-container button:hover {
     background-color: #555;
   }
+
+  .button-container-2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    height: 400px;
+  }
+
+  .button-container-2 button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    background-color: rgb(230, 226, 226);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .button-container-2 button:hover {
+    background-color: #555;
+  }
+  
   .bottom-navbar {
-    background-color: #f2f2f2;
+    background-color: white;
     position: fixed;
     bottom: 0;
     width: 100%;
   }
-  .nav-link {
+  .menu-item {
     text-decoration: none;
-    color: #333;
+    color: black;
     padding: 10px 20px;
-    transition: background-color 0.3s;
   }
   
-  .nav-link.active {
-    background-color: #333;
-    color: #fff;
+  .menu-item.active {
+    background-color: #f8ee97;
+    border-radius: 4px;
   }
   
   .bottom-navbar nav {
@@ -263,8 +306,10 @@ body{
   }
 
   #login-container, #register-container {
-    width: 300px;
-    margin: 20px auto;
+    width: 400px; /* Increase the width */
+    height: 300px; /* Increase the height */
+    margin: 0 auto; /* Set left and right margins to auto */
+    margin-top: 200px; /* Add top margin as desired */
     padding: 20px;
     background-color: #f8f8f8;
     border: 1px solid #ccc;
@@ -284,9 +329,121 @@ body{
     color: #fff;
     border: none;
     border-radius: 4px;
+    margin-top: 10px;
     cursor: pointer;
   }
   
   .button-1:hover {
     background-color: #555;
+  }
+
+  .page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 400px;
+    margin: 100px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .image-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crop the image to fit within the container */
+  }
+  
+  .content {
+    padding: 20px;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+  }
+  
+  h3 {
+    margin-top: 0;
+  }
+  
+  p {
+    margin-bottom: 10px;
+  }
+  
+  .box-button {
+    display: inline-block;
+    background: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 8px;
+    color: IndianRed;
+    border: 3px solid IndianRed;
+    background-image: linear-gradient(to right, transparent 50%, IndianRed 50%);
+    background-size: 200%;
+  }
+
+  .box-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 400px;
+    margin: 100px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .image-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crop the image to fit within the container */
+  }
+  
+  .content-2 {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .box-button-2 {
+    display: inline-block;
+    background: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 8px;
+    color: IndianRed;
+    border: 3px solid IndianRed;
+    background-image: linear-gradient(to right, transparent 50%, IndianRed 50%);
+    background-size: 200%;
+  }
+
+  .page-container-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: -400px;
   }
