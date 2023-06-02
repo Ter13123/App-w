@@ -8,40 +8,69 @@
 </head>
 <body>
     <nav class="navbar">
-        <a href="index.html" class="logo">
+        <a href="main.html" class="logo">
           <img src="../templates/image/sita logo.jpg" alt="Logo">
         </a>
-        <div class="search-bar">
-          <input type="text" id="search-bar" placeholder="Search">
-          <button type="submit">Search</button>
+        <div class="search-container">
+          <input type="text" id="search-bar" placeholder="Search...">
         </div>
         <a href="login.html" class="login-button">Login</a>
-        <div class="notification-icon">
-            <a href="#" onclick="toggleNotificationBox()">
-              <i class="fas fa-bell"></i>
-              <span class="badge" id="notification-badge">0</span>
-            </a>
-            <div class="notification-box" id="notification-box">
-              <!-- Notification content goes here -->
-            </div>
+    </nav>
+    <div id="overlay">
+      <div class="overlay-content">
+        <div class="box-3">
+          <div class="text"> อาคารอยู่อาศัย </div>
+          <div class="result">Result</div>
+          <a class="button" href="login.html">Button<span class="arrow"></span></a>
         </div>
-      </nav>
+        <div class="box-3">
+          <div class="text">ห้องแถว</div>
+          <div class="result">Result</div>
+          <a class="button" href="login.html">Button<span class="arrow"></span></a>
+        </div>
+        <div class="box-3">
+          <div class="text">ตึกแถว</div>
+          <div class="result">Result</div>
+          <a class="button" href="login.html">Button<span class="arrow"></span></a>
+        </div>
+        <div class="box-3">
+          <div class="text">บ้านแถว</div>
+          <div class="result">Result</div>
+          <a class="button" href="login.html">Button<span class="arrow"></span></a>
+        </div>
+        <div class="box-3">
+          <div class="text">บ้านแฝด</div>
+          <div class="result">Result</div>
+          <a class="button" href="login.html">Button<span class="arrow"></span></a>
+        </div>
+        <div class="box-3">
+          <div class="text">อาคารพาณิชย์</div>
+          <div class="result">Result</div>
+          <a class="button" href="login.html">Button<span class="arrow"></span></a>
+        </div>
+        <div class="box-3">
+          <div class="text">อาคารสาธารณะ</div>
+          <div class="result">Result</div>
+          <a class="button" href="login.html">Button<span class="arrow"></span></a>
+        </div>
+      </div>
+    </div>
       <div class="container">
         <div class="slideshow-container">
             <div class="slide">
-              <img src="../templates/image/kaning3.jpg" alt="Image 1">
+              <img src="../templates/image/kaning.jpg" alt="Image 1">
             </div>
             <div class="slide">
               <img src="../templates/image/Sita1.jpg" alt="Image 2">
             </div>
             <div class="slide">
-              <img src="../templates/image/Marmink1.jpg" alt="Image 3">
+              <img src="../templates/image/Marmink.jpg" alt="Image 3">
             </div>
             <div class="slide">
               <img src="../templates/image/kaning2.jpg" alt="Image 3">
             </div>
             <div class="slide">
-              <img src="../templates/image/Marmink2.jpg" alt="Image 3">
+              <img src="../templates/image/Marmink1.jpg" alt="Image 3">
             </div>
             <div class="slide">
               <img src="../templates/image/Kaming.jpg" alt="Image 3">
@@ -50,7 +79,7 @@
               <img src="../templates/image/nenine.jpg" alt="Image 3">
             </div>
             <div class="slide">
-              <img src="../templates/image/Sita.jpg" alt="Image 3">
+              <img src="../templates/image/Sita1.jpg" alt="Image 3">
             </div>
 
             <a class="prev" onclick="showSlide(currentSlide - 1)">&#10094;</a>
@@ -113,81 +142,6 @@
         </div>
       </div>
       
-    <script>
-        
-        var currentPageUrl = window.location.href;
-
-        // Get all menu items
-        var menuItems = document.getElementsByClassName("menu-item");
-
-        // Iterate over menu items and add 'active' class to the matching item
-        for (var i = 0; i < menuItems.length; i++) {
-          var menuItemUrl = menuItems[i].href;
-
-          if (currentPageUrl === menuItemUrl) {
-            menuItems[i].classList.add("active");
-          } else {
-            menuItems[i].classList.remove("active");
-          }
-        }
-        function scrollToSearch() {
-        var searchbar = document.getElementById("search-bar");
-        searchbar.scrollIntoView({ behavior: "smooth" });
-        searchbar.focus();
-}
-        var notificationBox = document.getElementById("notification-box");
-        var isNotificationBoxOpen = false;
-
-        function toggleNotificationBox() {
-        isNotificationBoxOpen = !isNotificationBoxOpen;
-        
-        if (isNotificationBoxOpen) {
-            notificationBox.classList.add("show");
-        } else {
-            notificationBox.classList.remove("show");
-        }
-    }
-        // Slideshow logic
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-
-        function showSlide(n) {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (n + slides.length) % slides.length;
-        slides[currentSlide].classList.add('active');
-        }
-
-        // Slide to the next image every 3 seconds
-        setInterval(() => {
-        showSlide(currentSlide + 1);
-        }, 10000);
-
-        // Show the initial slide
-        showSlide(currentSlide);
-       const menuBtn = document.querySelector(".menu-icon span");
-       const searchBtn = document.querySelector(".search-icon");
-       const cancelBtn = document.querySelector(".cancel-icon");
-       const items = document.querySelector(".nav-items");
-       const form = document.querySelector("form");
-       menuBtn.onclick = ()=>{
-         items.classList.add("active");
-         menuBtn.classList.add("hide");
-         searchBtn.classList.add("hide");
-         cancelBtn.classList.add("show");
-       }
-       cancelBtn.onclick = ()=>{
-         items.classList.remove("active");
-         menuBtn.classList.remove("hide");
-         searchBtn.classList.remove("hide");
-         cancelBtn.classList.remove("show");
-         form.classList.remove("active");
-         cancelBtn.style.color = "#ff3d00";
-       }
-       searchBtn.onclick = ()=>{
-         form.classList.add("active");
-         searchBtn.classList.add("hide");
-         cancelBtn.classList.add("show");
-       }
-    </script>
+    <script src="script.js"></script>
  </body>
 </html>
